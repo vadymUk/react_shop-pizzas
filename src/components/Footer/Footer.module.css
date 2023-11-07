@@ -1,0 +1,94 @@
+.container_footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    justify-items: center;
+    padding-top: 10px;
+    max-width: 100vw;
+    height: 150px;
+    background-color: var(--orange);
+}
+
+.wrapper_icon {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(60px, auto));
+    column-gap: 20px;
+}
+
+.wrapper_iconSocCard {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(60px, auto));
+    column-gap: 20px;
+}
+
+.icon {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+}
+
+.icon_title {
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.icon_text{
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+@media (max-width: 1015px) {
+    .container_footer {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: auto;
+        justify-items: start;
+        gap: 15px;
+        padding: 10px 10px 10px 15px;
+        height: 210px;
+    }
+    
+}
+
+@media (max-width: 555px) {
+   
+    .icon_title {
+        font-size: 12px;
+    }
+    .icon_text {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 430px) {
+    .container_footer {
+        height: 300px;
+    }
+    .wrapper_icon {
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+        align-items: start;
+    }
+    .icon_title {
+        margin-top: 5px;
+        font-size: 18px;
+        text-align: center;
+    }
+    .icon_text {
+        font-size: 18px;
+        text-align: center;
+    }
+}

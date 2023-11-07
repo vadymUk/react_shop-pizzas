@@ -1,0 +1,41 @@
+.section_filterText {
+    margin: 40px 0 40px 188px;
+}
+
+.wrapper_filterText {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 100px));
+    align-items: center;
+    justify-items: center;
+}
+
+.filterText {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    transition: all .7s ease;
+}
+
+.filterTextActive {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 30px;
+    padding: 9px 11px;
+    background-color: var(--orange);
+    color: #fff;
+    transition: all .7s ease;
+}
+
+.filterText:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .wrapper_filterText {
+        justify-content: center;
+    }
+    .section_filterText {
+        margin: 40px 0 40px 0;
+    }
+}

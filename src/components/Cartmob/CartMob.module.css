@@ -1,0 +1,18 @@
+.wrapper {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    height: 80px;
+    width: 84px;
+    background-color: var(--orange);
+    border: none;
+}
+
+@media (max-width: 700px) {
+    .wrapper {
+        display: flex;
+    }
+}
