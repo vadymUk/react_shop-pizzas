@@ -1,42 +1,87 @@
 @import-normalize;
 
 :root {
-  --orange:#FF4E00;
+    --orange: #ff4e00;
 }
 
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 li {
-  list-style-type: none;
+    list-style-type: none;
 }
-body { 
-  max-width: 100%;
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: normal;
-  color: #000000;
- 
+body {
+    max-width: 100%;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    color: #000000;
 }
 .container {
-  max-width: 100vw;
-  margin: 0 auto;
+    max-width: 100vw;
+    margin: 0 auto;
 }
-
+/* styles dots slidera */
 .slick-slider {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .slick-dots li.slick-active button:before {
-  color: var(--orange) !important;
+    color: var(--orange) !important;
 }
 
 .slick-dots li button:before {
-  font-size: 15px !important;
-  color: var(--orange) !important;
+    font-size: 15px !important;
+    color: var(--orange) !important;
+}
+
+/* styles modals windows */
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 1000ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+    opacity: 0;
+}
+
+.ReactModal__Content,
+.ReactModal__Content--after-open {
+    border-radius: 30px !important;
+    max-width: 850px;
+    margin: 0 auto;
+    height: 580px;
+    inset: 110px !important;
+    overflow: visible !important;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+}
+
+.containerAddedToCart {
+    width: 500px;
+    height: 300px;
+    margin-top: 90px;
+}
+
+.windowCart {
+    border-radius: 30px;
+    max-width: 850px;
+    margin: 0 auto;
+    height: 580px;
+    margin-top: 110px;;
+    overflow: auto !important;
+    background-color: #fff;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 }

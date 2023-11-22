@@ -40,7 +40,14 @@
     border-radius: 50%;
     border: none;
     background-color: var(--orange);
+    cursor: pointer;
 }
+
+.add:hover {
+    background-color: #e79d7d;
+    transition: all .7s ease;
+}
+
 
 @media (max-width: 591px) {
     .card_wrapper {

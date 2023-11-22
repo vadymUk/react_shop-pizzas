@@ -135,7 +135,7 @@ const initialState = {
     ],
 };
 
-export const counterSlice = createSlice({
+export const cardSlice = createSlice({
     name: "card",
     initialState,
     reducers: {
@@ -145,6 +145,6 @@ export const counterSlice = createSlice({
     },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount } = cardSlice.actions;
 
-export default counterSlice.reducer;
+export default cardSlice.reducer;

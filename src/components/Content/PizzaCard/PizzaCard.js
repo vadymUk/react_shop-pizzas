@@ -13,6 +13,7 @@ const PizzaCard = ({ pizzasRef }) => {
             {pizzas.map((obj) => (
                 <PizzaCardItem
                     key={obj.id}
+                    id={obj.id}
                     imageUrl={obj.imageUrl}
                     title={obj.title}
                     price={obj.price}

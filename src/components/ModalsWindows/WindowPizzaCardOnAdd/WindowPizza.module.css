@@ -1,0 +1,213 @@
+.container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    border-radius: 30px;
+    background: #fff;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+.leftContent {
+    border-right: 1px solid #c4c4c4;
+}
+
+.wrapperTitle {
+    display: flex;
+    justify-content: space-between;
+    gap: 45px;
+    padding: 30px 30px 0 30px;
+}
+
+.title {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.name {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.pizzaWrapper {
+    padding: 40px 25px 45px 45px;
+}
+
+.pizza {
+    width: 248px;
+    height: 251px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.radioWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    padding: 70px 100px 30px 100px;
+    border-bottom: 1px solid #c4c4c4;
+}
+
+.leftRadio,
+.rightRadio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leftRadioContent,
+.rightRadioContent {
+    color: #c4c4c4;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.radioButton {
+    height: 25px;
+    width: 25px;
+}
+
+.footerRightContent {
+    padding: 10px 0 10px 35px;
+}
+
+.titleFooter {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.circle {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 15px;
+    color: rgba(0, 0, 0, 0.4);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.circle::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.activeRadio {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 15px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+    color: var(--orange);
+}
+
+.activeRadio::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    background-color: var(--orange);
+}
+
+.info {
+    margin-top: 15px;
+    color: #000;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.footerContent {
+    border-top: 3px solid #000;
+    text-align: center;
+}
+
+.price {
+    margin-top: 15px;
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.button {
+    margin-top: 10px;
+    padding: 15px;
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    border-radius: 30px;
+    background: var(--orange);
+    border: none;
+    cursor: pointer;
+}
+
+.wrapperClose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    cursor: pointer;
+    right: -45px;
+    top: -45px;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    border: 1px solid var(--orange);
+    background-color: #fff;
+}
+
+.close {
+    font-size: 50px;
+    color: var(--orange);
+}
