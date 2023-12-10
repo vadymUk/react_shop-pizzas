@@ -6,11 +6,15 @@ import Burger from "../Burger/Burger";
 import CartMob from "../Cartmob/CartMob";
 import WindowCart from "../ModalsWindows/WindowCart/WindowCart";
 import { useState } from "react";
+import WindowSetOrder from "../ModalsWindows/WindowSetOrder/WindowSetOrder";
+import WindowOrdered from "../ModalsWindows/WindowOrdered/WindowOrdered";
 
 const Header = ({ open, setOpen, deliverRef, pizzasRef }) => {
     const cart = useSelector((state) => state.cart.cart);
 
     const [openCart, setOpenCart] = useState(false);
+    const [openSetOrder, setOpenSetOrder] = useState(false);
+    const [openOrdered, setOpenOrdered] = useState(false);
 
     const handleDeliverClick = () => {
         deliverRef.current.scrollIntoView({
@@ -26,6 +30,20 @@ const Header = ({ open, setOpen, deliverRef, pizzasRef }) => {
         });
     };
 
+    const isOpenSetOrder = () => {
+        setOpenSetOrder(true);
+        setOpenCart(false);
+    };
+
+    const closeSetOrder = () => {
+        setOpenSetOrder(false);
+    };
+
+    const comeBack = () => {
+        setOpenSetOrder(false);
+        setOpenCart(true);
+    };
+
     const isOpenCart = () => {
         if (!cart.length) return;
         setOpenCart(true);
@@ -33,6 +51,14 @@ const Header = ({ open, setOpen, deliverRef, pizzasRef }) => {
 
     const closeCart = () => {
         setOpenCart(false);
+    };
+
+    const sumbitForm = (e) => {
+        setOpenSetOrder(false);
+        e.preventDefault();
+        setOpenOrdered(true);
+        const timer = setTimeout(() => setOpenOrdered(false), 5000);
+        return () => clearTimeout(timer);
     };
 
     return (
@@ -180,7 +206,35 @@ const Header = ({ open, setOpen, deliverRef, pizzasRef }) => {
                 onRequestClose={closeCart}
                 ariaHideApp={false}
             >
-                {<WindowCart closeCart={closeCart} />}
+                {
+                    <WindowCart
+                        closeCart={closeCart}
+                        isOpenSetOrder={isOpenSetOrder}
+                    />
+                }
+            </Modal>
+            <Modal
+                className='windowSetOrder'
+                closeTimeoutMS={1000}
+                isOpen={openSetOrder}
+                onRequestClose={closeSetOrder}
+                ariaHideApp={false}
+            >
+                {
+                    <WindowSetOrder
+                        closeSetOrder={closeSetOrder}
+                        comeBack={comeBack}
+                        sumbitForm={sumbitForm}
+                    />
+                }
+            </Modal>
+            <Modal
+                className='windowCart'
+                closeTimeoutMS={1000}
+                isOpen={openOrdered}
+                ariaHideApp={false}
+            >
+                {<WindowOrdered />}
             </Modal>
         </>
     );

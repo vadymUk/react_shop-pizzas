@@ -10,6 +10,7 @@ const WaterCard = () => {
             {waters.map((obj) => (
                 <WaterCardItem
                     key={obj.id}
+                    id={obj.id}
                     imageUrl={obj.imageUrl}
                     title={obj.title}
                     price={obj.price}

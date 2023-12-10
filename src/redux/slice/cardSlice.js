@@ -3,22 +3,22 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     waters: [
         {
-            id: 0,
-            imageUrl: "./img/Coca-cola.png",
+            id: 677,
+            imageUrl: "./img/coca-cola.png",
             title: "Coca-cola",
-            price: 95,
+            price: 24,
         },
         {
-            id: 1,
-            imageUrl: "./img/Coca-cola.png",
+            id: 445,
+            imageUrl: "./img/fanta.png",
             title: "Fanta",
-            price: 92,
+            price: 24,
         },
         {
-            id: 2,
-            imageUrl: "./img/Coca-cola.png",
+            id: 2345,
+            imageUrl: "./img/sprite.png",
             title: "Sprite",
-            price: 93,
+            price: 24,
         },
     ],
     pizzas: [
@@ -139,7 +139,7 @@ export const cardSlice = createSlice({
     name: "card",
     initialState,
     reducers: {
-        increment: (state) => {},
+        addToCartWater: (state, action) => {},
         decrement: (state) => {},
         incrementByAmount: (state, action) => {},
     },

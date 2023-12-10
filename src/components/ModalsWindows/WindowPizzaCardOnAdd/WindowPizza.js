@@ -16,6 +16,7 @@ const WindowPizza = ({
     const dispatch = useDispatch();
 
     const [borderPizza, setBorderPizza] = useState("");
+    const [orderPrice, setOrderPrice] = useState(price);
 
     const sizeM = useRef(null);
     const sizeL = useRef(null);
@@ -43,7 +44,7 @@ const WindowPizza = ({
         const cart = {
             id,
             title,
-            price,
+            price: orderPrice,
             imageUrl,
             size,
             border: borderPizza,
@@ -86,13 +87,15 @@ const WindowPizza = ({
                                     id='choice1'
                                     name='size'
                                     value='Размер M'
-                                    defaultChecked
+                                    onClick={() => {
+                                        setOrderPrice(price - 30);
+                                    }}
                                 />
                                 <label
                                     className={styles.leftRadioContent}
                                     htmlFor='choice1'
                                 >
-                                    Ø 35 см <br /> 80 грн
+                                    Ø 35 см <br /> {price - 30} грн
                                 </label>
                             </div>
                             <div className={styles.rightRadio}>
@@ -106,12 +109,16 @@ const WindowPizza = ({
                                     id='choice2'
                                     name='size'
                                     value='Размер L'
+                                    defaultChecked
+                                    onClick={() => {
+                                        setOrderPrice(price);
+                                    }}
                                 />
                                 <label
                                     className={styles.rightRadioContent}
                                     htmlFor='choice2'
                                 >
-                                    Ø 45 см <br /> 110 грн
+                                    Ø 45 см <br /> {price} грн
                                 </label>
                             </div>
                             <div className={styles.rightRadio}></div>
@@ -147,7 +154,9 @@ const WindowPizza = ({
                     </div>
                 </div>
                 <div className={styles.footerContent}>
-                    <div className={styles.price}>Стоимость: {price} грн</div>
+                    <div className={styles.price}>
+                        Стоимость: {orderPrice} грн
+                    </div>
                     <button
                         className={styles.button}
                         type='button'

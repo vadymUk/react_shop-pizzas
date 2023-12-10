@@ -1,0 +1,240 @@
+.container {
+    position: relative;
+    border-radius: 25px;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.wrapper {
+    padding: 25px 25px;
+    margin: 0 auto;
+}
+
+.backToCart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 5px;
+    width: 290px;
+    cursor: pointer;
+}
+
+.text {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.buttonsDeliver {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.buttonLeft {
+    padding: 15px 45px;
+    background-color: #fff;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: 3px solid var(--orange);
+    color: var(--orange);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.buttonRight {
+    padding: 15px 35px;
+    background-color: #fff;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 3px solid var(--orange);
+    color: var(--orange);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.buttonActiveRight {
+    padding: 15px 35px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 3px solid var(--orange);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: var(--orange);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.buttonActiveLeft {
+    padding: 15px 45px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: 3px solid var(--orange);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: var(--orange);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.formWrapper {
+    margin-top: 40px;
+    padding: 0 125px 40px;
+}
+
+.wrapperContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.name label,
+.tel label,
+.adress label,
+.wrapperTextArea label,
+.titleRadio {
+    display: block;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.tel label,
+.wrapperTextArea label,
+.titleRadio {
+    margin-top: 15px;
+}
+
+.titleAdress {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.descrAdress {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.radioLeft,
+.radioRight {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.radioLeftLabel,
+.radioRightLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.radioRightLabel {
+    margin-left: 10px;
+}
+
+.name input,
+.tel input,
+.adress input {
+    width: 315px;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+}
+
+.wrapperTextArea textarea {
+    resize: none;
+    width: 700px;
+    height: 115px;
+}
+
+.wrapperCheckbox {
+    margin-top: 15px;
+}
+
+.wrapperCheckbox label {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 5px;
+}
+
+.wrapperTotal {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    border-top: 3px solid #000;
+}
+
+.wrapperTotal p {
+    margin-top: 20px;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.sumbit {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.sumbit button {
+    padding: 15px 45px;
+    border-radius: 25px;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    background-color: var(--orange);
+    cursor: pointer;
+}
+
+.wrapperClose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    cursor: pointer;
+    right: -25px;
+    top: -25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    border: 1px solid var(--orange);
+    background-color: #fff;
+}
+
+.close {
+    font-size: 50px;
+    color: var(--orange);
+}

@@ -1,26 +1,32 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./WindowCart.module.css";
-import { minusItem, plusItem } from "../../../redux/slice/cartSlice";
+import {
+    minusItem,
+    plusItem,
+    totalPricePlus,
+    totalPriceMinus,
+    removeItem,
+} from "../../../redux/slice/cartSlice";
 
-const WindowCart = ({ closeCart }) => {
+const WindowCart = ({ closeCart, isOpenSetOrder }) => {
     const dispatch = useDispatch();
 
-    const cart = useSelector((state) => state.cart.cart);
-    console.log(cart);
-
-    let totalPrice = cart.reduce(
-        (accumulator, currentValue) => accumulator + currentValue.price,
-        0
-    );
-    console.log(totalPrice);
+    const { cart, totalPrice } = useSelector((state) => state.cart);
 
     const plusCount = (id) => {
         dispatch(plusItem(id));
+        dispatch(totalPricePlus());
     };
 
-    const minusCount = (id) => {
+    const minusCount = (id, price) => {
         dispatch(minusItem(id));
+        dispatch(totalPriceMinus(price));
+    };
+
+    const removeItemCart = (id, price) => {
+        dispatch(removeItem(id));
+        dispatch(totalPriceMinus(price));
     };
     return (
         <div className={styles.container}>
@@ -52,7 +58,11 @@ const WindowCart = ({ closeCart }) => {
                         <li className={styles.count}>
                             <span
                                 className={styles.minus}
-                                onClick={() => minusCount(obj.id)}
+                                onClick={
+                                    obj.count !== 1
+                                        ? () => minusCount(obj.id, obj.price)
+                                        : null
+                                }
                             >
                                 -
                             </span>
@@ -65,7 +75,12 @@ const WindowCart = ({ closeCart }) => {
                             </span>
                         </li>
                         <li className={styles.price}>{obj.price} грн</li>
-                        <li className={styles.remove}>&times;</li>
+                        <li
+                            className={styles.remove}
+                            onClick={() => removeItemCart(obj.id, obj.price)}
+                        >
+                            &times;
+                        </li>
                     </ul>
                 ))}
                 <div className={styles.wrapperCountPrice}>
@@ -85,6 +100,7 @@ const WindowCart = ({ closeCart }) => {
                     <button
                         className={styles.buttonRight}
                         type='button'
+                        onClick={cart.length ? isOpenSetOrder : null}
                     >
                         оформить заказ
                     </button>
