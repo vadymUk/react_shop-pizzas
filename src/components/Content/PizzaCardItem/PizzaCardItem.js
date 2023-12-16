@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Modal from "react-modal";
 import styles from "./PizzaCardItem.module.css";
-// import { TiTick } from "react-icons/ti";
+import { TiTick } from "react-icons/ti";
 import { TiPlus } from "react-icons/ti";
 import WindowPizza from "../../ModalsWindows/WindowPizzaCardOnAdd/WindowPizza";
 import WindowAddToCart from "../../ModalsWindows/WindowAddToCart/WindowAddToCart";
 
 const PizzaCardItem = ({ imageUrl, title, price, id }) => {
+    const { cart } = useSelector((state) => state.cart);
+    const added = cart.some((el) => el.id === id);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [isOpenAddedToCart, setIsOpenAddedToCart] = useState(false);
 
@@ -35,18 +38,24 @@ const PizzaCardItem = ({ imageUrl, title, price, id }) => {
                 </p>
                 <div className={styles.wrapper_footer}>
                     <p className={styles.card_price}>{price} грн</p>
-                    <button
-                        className={styles.add}
-                        onClick={openModal}
-                    >
-                        <TiPlus
-                            color='#FFF'
-                            size='36px'
-                        />
-                    </button>
-                    {/* <button className={styles.add_click}>
-                    <TiTick />
-                </button> */}
+                    {!added ? (
+                        <button
+                            className={styles.add}
+                            onClick={openModal}
+                        >
+                            <TiPlus
+                                color='#FFF'
+                                size='36px'
+                            />
+                        </button>
+                    ) : (
+                        <button className={styles.add}>
+                            <TiTick
+                                color='#FFF'
+                                size='36px'
+                            />
+                        </button>
+                    )}
                 </div>
             </div>
             <Modal

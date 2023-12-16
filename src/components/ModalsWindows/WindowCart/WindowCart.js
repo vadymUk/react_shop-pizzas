@@ -84,7 +84,12 @@ const WindowCart = ({ closeCart, isOpenSetOrder }) => {
                     </ul>
                 ))}
                 <div className={styles.wrapperCountPrice}>
-                    <p className={styles.count}>Всего товаров: {cart.length}</p>
+                    <p className={styles.count}>
+                        Всего товаров:{" "}
+                        {cart.reduce((sum, obj) => {
+                            return sum + obj.count;
+                        }, 0)}
+                    </p>
                     <p className={styles.price}>
                         Общая стоимость: {totalPrice} грн
                     </p>

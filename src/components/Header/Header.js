@@ -142,7 +142,9 @@ const Header = ({ open, setOpen, deliverRef, pizzasRef }) => {
                         <li className={styles.wrapper}>
                             {!cart.length ? null : (
                                 <div className={styles.count}>
-                                    {cart.length}
+                                    {cart.reduce((sum, obj) => {
+                                        return sum + obj.count;
+                                    }, 0)}
                                 </div>
                             )}
                             <svg

@@ -1,8 +1,13 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart } from "../../../redux/slice/cartSlice";
 import styles from "./WindowSetOrder.module.css";
 
 const WindowSetOrder = ({ closeSetOrder, comeBack, sumbitForm }) => {
+    const form = useRef();
+    const dispatch = useDispatch();
+
     const { cart, totalPrice } = useSelector((state) => state.cart);
     const [activeLeftButton, setactiveLeftButton] = useState(true);
     const [name, setName] = useState("");
@@ -12,14 +17,30 @@ const WindowSetOrder = ({ closeSetOrder, comeBack, sumbitForm }) => {
     const [descr, setDescr] = useState("");
     const [activeRightButton, setactiveRightButton] = useState(false);
 
-    const objOrdered = {
-        name,
-        tel,
-        adress,
-        radio,
-        descr,
+    const sendEmail = (e) => {
+        e.preventDefault();
+        sumbitForm(e);
+        emailjs
+            .sendForm(
+                "service_63f1b4a",
+                "template_4s4i1kj",
+                form.current,
+                "zZoAXh4EvB0zRLjfo"
+            )
+            .then(
+                (result) => {
+                    console.log(result.text);
+                },
+                (error) => {
+                    console.log(error.text);
+                }
+            );
+        setName("");
+        setTel("");
+        setAdress("");
+        setDescr("");
+        dispatch(clearCart());
     };
-    console.log(objOrdered);
 
     const clickLeftButton = () => {
         setactiveLeftButton(true);
@@ -79,7 +100,8 @@ const WindowSetOrder = ({ closeSetOrder, comeBack, sumbitForm }) => {
                 </div>
                 <form
                     className={styles.formWrapper}
-                    onSubmit={sumbitForm}
+                    ref={form}
+                    onSubmit={sendEmail}
                 >
                     <div className={styles.wrapperContent}>
                         <div className={styles.wrapperLeftContent}>
@@ -113,13 +135,13 @@ const WindowSetOrder = ({ closeSetOrder, comeBack, sumbitForm }) => {
                         <div className={styles.wrapperRightContent}>
                             {!activeRightButton ? (
                                 <div className={styles.adress}>
-                                    <label htmlFor='adress'>
+                                    <label htmlFor='address'>
                                         Адрес доставки:
                                     </label>
                                     <input
                                         type='text'
-                                        name='adress'
-                                        id='adress'
+                                        name='address'
+                                        id='address'
                                         onChange={(e) => {
                                             setAdress(e.target.value);
                                         }}
@@ -150,6 +172,7 @@ const WindowSetOrder = ({ closeSetOrder, comeBack, sumbitForm }) => {
                                         type='radio'
                                         name='payment'
                                         id='radioLeft'
+                                        value='наличными'
                                         required
                                         defaultChecked='checked'
                                         onClick={() => {
@@ -183,7 +206,7 @@ const WindowSetOrder = ({ closeSetOrder, comeBack, sumbitForm }) => {
 
                         <textarea
                             id='coment'
-                            name='descr'
+                            name='description'
                             onChange={(e) => {
                                 setDescr(e.target.value);
                             }}
@@ -204,7 +227,10 @@ const WindowSetOrder = ({ closeSetOrder, comeBack, sumbitForm }) => {
                     </div>
                     <div className={styles.wrapperTotal}>
                         <p className={styles.count}>
-                            Всего товаров: {cart.length}
+                            Всего товаров:{" "}
+                            {cart.reduce((sum, obj) => {
+                                return sum + obj.count;
+                            }, 0)}
                         </p>
                         <p className={styles.price}>
                             Общая стоимость: {totalPrice} грн
