@@ -49,7 +49,10 @@ const PizzaCardItem = ({ imageUrl, title, price, id }) => {
                             />
                         </button>
                     ) : (
-                        <button className={styles.add}>
+                        <button
+                            className={styles.add}
+                            onClick={openModal}
+                        >
                             <TiTick
                                 color='#FFF'
                                 size='36px'

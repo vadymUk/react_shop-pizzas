@@ -13,7 +13,6 @@ const WindowCart = ({ closeCart, isOpenSetOrder }) => {
     const dispatch = useDispatch();
 
     const { cart, totalPrice } = useSelector((state) => state.cart);
-
     const plusCount = (id) => {
         dispatch(plusItem(id));
         dispatch(totalPricePlus());
@@ -24,9 +23,9 @@ const WindowCart = ({ closeCart, isOpenSetOrder }) => {
         dispatch(totalPriceMinus(price));
     };
 
-    const removeItemCart = (id, price) => {
+    const removeItemCart = (id, price, count) => {
         dispatch(removeItem(id));
-        dispatch(totalPriceMinus(price));
+        dispatch(totalPriceMinus(price * count));
     };
     return (
         <div className={styles.container}>
@@ -77,7 +76,9 @@ const WindowCart = ({ closeCart, isOpenSetOrder }) => {
                         <li className={styles.price}>{obj.price} грн</li>
                         <li
                             className={styles.remove}
-                            onClick={() => removeItemCart(obj.id, obj.price)}
+                            onClick={() =>
+                                removeItemCart(obj.id, obj.price, obj.count)
+                            }
                         >
                             &times;
                         </li>

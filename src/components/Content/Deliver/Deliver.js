@@ -5,11 +5,9 @@ const Deliver = ({ deliverRef }) => {
         <section
             className={styles.container}
             ref={deliverRef}
+            id='deliver'
         >
-            <div
-                className={styles.wrapper}
-                // id='deliver'
-            >
+            <div className={styles.wrapper}>
                 <div className={styles.leftContent}>
                     <h5 className={styles.title}>Условия доставки</h5>
                     <p className={styles.desc}>

@@ -211,3 +211,82 @@
     font-size: 50px;
     color: var(--orange);
 }
+
+@media (max-width: 1070px) {
+    .radioWrapper {
+        padding: 70px 0 30px 0;
+    }
+}
+
+@media (max-width: 870px) {
+    .pizza {
+        width: 200px;
+        height: 200px;
+    }
+}
+@media (max-width: 845px) {
+    .headerContent {
+        flex-direction: column;
+    }
+
+    .radioWrapper {
+        padding: 0 0 5px 0;
+        gap: 10px;
+    }
+
+    .pizzaWrapper {
+        display: flex;
+        justify-content: center;
+        padding: 5px 0 5px 0;
+    }
+
+    .leftContent {
+        border: none;
+    }
+}
+
+@media (max-width: 822px) {
+    .title {
+        font-size: 14px;
+    }
+    .name {
+        font-size: 14px;
+    }
+    .leftRadioContent,
+    .rightRadioContent {
+        font-size: 14px;
+    }
+    .titleFooter {
+        font-size: 14px;
+    }
+    .price,
+    .button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 790px) {
+    .headerContent {
+        gap: 5px;
+    }
+    .wrapperTitle {
+        padding: 7px 10px 0 10px;
+    }
+    .footerRightContent {
+        padding: 10px 0 10px 0;
+    }
+}
+
+@media (max-width: 533px) {
+    .pizza {
+        width: 130px;
+        height: 130px;
+    }
+    .wrapperTitle {
+        justify-content: start;
+    }
+    .wrapperClose {
+        right: -8px;
+        top: -12px;
+    }
+}

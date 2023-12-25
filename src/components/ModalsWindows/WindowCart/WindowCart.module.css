@@ -145,9 +145,9 @@
 
 .buttonLeft:hover,
 .buttonRight:hover {
-    color:#fff;
+    color: #fff;
     background-color: var(--orange);
-    transition: all .3 ease;
+    transition: all 0.3 ease;
 }
 
 .wrapperClose {
@@ -168,4 +168,74 @@
 .close {
     font-size: 50px;
     color: var(--orange);
+}
+
+@media (max-width: 860px) {
+    .container {
+        margin: 0 20px;
+    }
+
+    .headerContent {
+        gap: 65px;
+    }
+
+    .img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .title,
+    .count,
+    .price {
+        font-size: 16px;
+    }
+
+    .buttonLeft,
+    .buttonRight {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 700px) {
+    .wrapper {
+        padding: 30px 0;
+    }
+
+    .headerContent {
+        display: none;
+    }
+
+    .wrapperCountPrice {
+        display: block;
+    }
+
+    .count,
+    .price {
+        text-align: start;
+    }
+
+    .wrapperButtons {
+        justify-content: center;
+    }
+
+    .buttonLeft {
+        display: none;
+    }
+
+    .wrapperClose {
+        display: none;
+    }
+}
+
+@media (max-width: 535px) {
+    .title,
+    .count,
+    .price {
+        font-size: 14px;
+    }
+
+    .buttonLeft,
+    .buttonRight {
+        font-size: 14px;
+    }
 }

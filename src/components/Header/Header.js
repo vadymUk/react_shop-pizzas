@@ -45,8 +45,8 @@ const Header = ({ open, setOpen, deliverRef, pizzasRef }) => {
     };
 
     const isOpenCart = () => {
-        if (!cart.length) return;
-        setOpenCart(true);
+        // if (!cart.length) return;
+        setOpenCart(!openCart);
     };
 
     const closeCart = () => {
@@ -79,6 +79,7 @@ const Header = ({ open, setOpen, deliverRef, pizzasRef }) => {
                     <ul className={styles.content_right}>
                         <li>
                             <a
+                                href='#'
                                 className={styles.text_header}
                                 onClick={handlePizzasClick}
                             >
@@ -87,6 +88,7 @@ const Header = ({ open, setOpen, deliverRef, pizzasRef }) => {
                         </li>
                         <li>
                             <a
+                                href='#'
                                 className={styles.text_header}
                                 onClick={handleDeliverClick}
                             >
@@ -198,7 +200,10 @@ const Header = ({ open, setOpen, deliverRef, pizzasRef }) => {
                         open={open}
                         setOpen={setOpen}
                     />
-                    <CartMob />
+                    <CartMob
+                        onClickIsOpenCart={isOpenCart}
+                        openCart={openCart}
+                    />
                 </nav>
             </header>
             <Modal

@@ -33,7 +33,10 @@ const WaterCardItem = ({ imageUrl, title, price, id }) => {
                             />
                         </button>
                     ) : (
-                        <button className={styles.add}>
+                        <button
+                            className={styles.add}
+                            onClick={() => setOpenWaterWind(true)}
+                        >
                             <TiTick
                                 color='#FFF'
                                 size='36px'

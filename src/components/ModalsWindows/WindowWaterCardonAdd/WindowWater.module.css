@@ -117,3 +117,9 @@
     font-size: 50px;
     color: var(--orange);
 }
+
+@media (max-width: 600px) {
+    .main {
+        flex-direction: column;
+    }
+}

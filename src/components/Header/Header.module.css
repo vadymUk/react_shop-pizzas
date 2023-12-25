@@ -108,6 +108,9 @@
 }
 
 @media (max-width: 700px) {
+    /* .container_header {
+        position: fixed;
+    } */
     .content_right {
         display: none;
     }

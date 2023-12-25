@@ -14,5 +14,12 @@
 @media (max-width: 700px) {
     .wrapper {
         display: flex;
+      
+    }
+
+    .wrapper svg path {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

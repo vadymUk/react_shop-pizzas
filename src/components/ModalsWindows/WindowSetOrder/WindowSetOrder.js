@@ -22,10 +22,10 @@ const WindowSetOrder = ({ closeSetOrder, comeBack, sumbitForm }) => {
         sumbitForm(e);
         emailjs
             .sendForm(
-                "service_63f1b4a",
-                "template_4s4i1kj",
+                process.env.REACT_APP_API_SERVICE,
+                process.env.REACT_APP_API_TEMPLATE,
                 form.current,
-                "zZoAXh4EvB0zRLjfo"
+                process.env.REACT_APP_API_KEY
             )
             .then(
                 (result) => {
@@ -41,7 +41,6 @@ const WindowSetOrder = ({ closeSetOrder, comeBack, sumbitForm }) => {
         setDescr("");
         dispatch(clearCart());
     };
-
     const clickLeftButton = () => {
         setactiveLeftButton(true);
         setactiveRightButton(false);

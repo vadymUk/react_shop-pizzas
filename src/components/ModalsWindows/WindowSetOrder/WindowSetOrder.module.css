@@ -173,7 +173,7 @@
 }
 
 .wrapperCheckbox {
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .wrapperCheckbox label {
@@ -237,4 +237,77 @@
 .close {
     font-size: 50px;
     color: var(--orange);
+}
+
+@media (max-width: 1050px) {
+    .wrapperContent {
+        flex-direction: column;
+    }
+    .formWrapper input:not([type="checkbox"]) {
+        width: 100%;
+    }
+    .wrapperTextArea textarea {
+        width: 100%;
+    }
+    .wrapperTotal {
+        flex-direction: column;
+        gap: 0;
+    }
+    .wrapperTotal p {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 1050px) {
+    .formWrapper {
+        padding: 0 10px 40px;
+    }
+}
+
+@media (max-width: 700px) {
+    .wrapperClose {
+        right: 10px;
+        top: 12px;
+    }
+    .buttonsDeliver button {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+    }
+    .backToCart {
+        width: 270px;
+    }
+    .text,
+    .buttonLeft,
+    .buttonRight,
+    .buttonActiveRight,
+    .buttonActiveLeft,
+    .name label,
+    .tel label,
+    .adress label,
+    .wrapperTextArea label,
+    .titleRadio,
+    .titleAdress,
+    .wrapperTotal p,
+    .sumbit button {
+        font-size: 14px;
+    }
+    .buttonsDeliver {
+        margin-top: 7px;
+    }
+    .formWrapper {
+        margin-top: 7px;
+        padding: 0 10px 7px;
+    }
+    .wrapperTextArea textarea {
+        height: 85px;
+    }
+    .wrapperTotal {
+        margin-top: 7px;
+    }
 }
